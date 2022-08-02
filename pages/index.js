@@ -4,16 +4,13 @@ import styles from '../styles/Home.module.css'
 import { NextSeo, JobPostingJsonLd } from 'next-seo'
 import { useCallback, useEffect, useState } from 'react'
 
-// export async function getServerSideProps(context) {
-
-//   console.log(context)
-
-//   return {
-//     props: {
-//       test: 'test'
-//     }
-//   }
-// }
+export async function getServerSideProps() {
+  return {
+    props: {
+      metaData: testData
+    }
+  }
+}
 
 const testData = {
   link: 'seo-test-url.com',
@@ -23,13 +20,7 @@ const testData = {
   ogimage: 'https://deuexsolutions.com/images/dsprofile-200.jpg'
 }
 
-export default function Home({test}) {
-
-  const [metaData, setMetaData] = useState({})
-
-  useEffect(() => {
-    setMetaData(testData)
-  }, [])
+export default function Home({metaData}) {
 
   const {link, description, title, ogimage, companyName} = metaData
 
